@@ -1,0 +1,209 @@
+body {
+  text-align: right;
+  font-family: "Rubik", sans-serif;
+}
+
+.mat-toolbar {
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s; /* Add a transition for background-color */
+  border-radius: 0; /* Set initial border radius to 0 */
+}
+
+.mat-toolbar.change-color::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%; /* Start position from the right */
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(to left, white, rgb(52, 58, 64) 0%);
+  background-size: 200% 100%;
+  animation: wave 0.3s linear forwards; /* Change animation timing */
+}
+
+@keyframes wave {
+  0% {
+    left: 100%; /* Start position from the right */
+    width: 0%; /* Start with no width */
+    border-radius: 0; /* Start with no border radius */
+  }
+
+  99% {
+    border-top-left-radius: 1850px; /* Start with no border radius */
+    border-bottom-left-radius: 1850px; /* Start with no border radius */
+  }
+  100% {
+    left: 0; /* End position at the left */
+    width: 100%; /* End with full width */
+  }
+}
+
+.menu-btn {
+  color: rgb(127, 127, 127);
+  transition: color 0.6s; /* Add a transition for smooth color change */
+}
+.menu-btn:hover {
+  color: aliceblue;
+  background-color: rgb(52, 58, 64);
+}
+
+.mat-sidenav-container {
+  background-color: rgb(244, 246, 249);
+  min-height: 93vh !important;
+}
+
+.mat-sidenav-content {
+  text-align: center;
+}
+
+.mat-drawer-inner-container {
+  color: white;
+  text-align: right;
+}
+
+/* navbar.component.css */
+.sidenav-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+/* navbar.component.css */
+.sidenav-btn span {
+  font-size: 16px; /* Adjust the font size as needed */
+  align-items: center; /* Center text and icon vertically within the button */
+}
+
+.sidenav-btn a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; /* Center text and icon vertically within the button */
+  color: rgb(194, 199, 208);
+  transition: background-color 0.3s; /* Add a transition for smooth color change */
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 0 15px 0 20px;
+  height: 5vh;
+  font-size: 18px;
+}
+
+.sidenav-btn a:hover {
+  background-color: rgb(73, 78, 83); /* Change the background color on hover */
+  color: white; /* Change the text color on hover (optional) */
+}
+
+/* navbar.component.css */
+.sidenav-btn a.active {
+  background-color: rgb(
+    1,
+    134,
+    196
+  ); /* Change the background color for active button */
+  color: white; /* Change the text color for active button (optional) */
+}
+
+.mat-sidenav {
+  background-color: rgb(52, 58, 64);
+  width: 36vh;
+}
+
+.mat-sidenav mat-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24px;
+  width: 22px;
+  height: 36px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center; /* Vertically center items within the .profile-section */
+  padding: 16px;
+  border-top: 1px solid rgb(74, 83, 91);
+  border-bottom: 1px solid rgb(74, 83, 91);
+}
+
+.profile-picture {
+  background-color: aliceblue;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.profile-title {
+  color: rgb(194, 199, 208);
+  margin-top: 0px;
+  font-size: 18px;
+}
+.profile-text {
+  flex: 1; /* Allow this element to grow and occupy remaining space */
+  margin-left: 16px; /* Add margin to create a gap */
+}
+.profile-description {
+  color: rgb(194, 199, 208);
+  margin-top: 4px;
+  font-size: 14px;
+}
+.profile-title,
+.profile-description {
+  direction: ltr;
+}
+
+hr {
+  width: 100%;
+  margin-top: 16px;
+}
+
+@media (min-width: 992px) {
+  .mat-sidenav:not(.mat-drawer-opened) {
+    transform: translate3d(0, 0, 0) !important;
+    visibility: visible !important;
+    width: 60px !important;
+    overflow: hidden;
+  }
+
+  .content {
+    margin-right: 5vh;
+  }
+
+  mat-sidenav:not(.mat-drawer-opened) .mat-mdc-button-touch-target{
+    width: 5vh;
+    margin-right: 20px;
+    height: 5vh;
+  }
+  mat-sidenav:not(.mat-drawer-opened) .menu-text {
+    display: none;
+    transition: opacity 0.3s ease-in-out; /* Add a transition for opacity */
+  }
+
+  mat-sidenav:not(.mat-drawer-opened) .profile-section {
+    display: block;
+    border-top: 0px;
+    border-bottom: 0px;
+  }
+  mat-sidenav:not(.mat-drawer-opened) .profile-title {
+    display: none;
+  }
+
+  mat-sidenav:not(.mat-drawer-opened) .profile-description {
+    display: none;
+  }
+
+  mat-sidenav:not(.mat-drawer-opened) .profile-picture {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 14px;
+    margin-left: 0px; /* Adjust the margin as needed to center the picture */
+    margin-right: 0; /* Adjust the margin as needed to center the picture */
+  }
+}
+
+/* Add transition to the side menu width */
+.mat-sidenav.mat-drawer-over {
+  transition: width 0.3s ease-in-out;
+}

@@ -1,0 +1,54 @@
+<div>
+  <mat-toolbar [class.change-color]="sidenav.opened" color="primary">
+    <div class="flex-container">
+      <button
+        mat-icon-button
+        class="menu-btn"
+        (click)="sidenav.toggle()"
+        #menuButton
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav #sidenav fxLayout="column" mode="over" opened="false">
+      <!-- profile section -->
+      <div class="profile-section">
+        <!-- wrapper div -->
+        <div class="profile-text">
+          <p class="profile-title">پروفایل</p>
+          <p class="profile-description">پنل اطلاعات کاربران</p>
+        </div>
+        <!-- End of wrapper div -->
+        <img
+          src=""
+          alt=""
+          class="profile-picture"
+        />
+      </div>
+      <!-- End of new section -->
+      <div class="sidenav-btn" fxLayout="column">
+        <a mat-button routerLink="/user" routerLinkActive="active">
+          <span class="menu-text">جدول کاربران</span>
+          <mat-icon class="mat-24 icon">account_circle</mat-icon>
+        </a>
+
+        <a mat-button routerLink="/edit" routerLinkActive="active">
+          <span class="menu-text">ویرایش کاربران</span>
+          <mat-icon class="mat-24 icon">edit</mat-icon>
+        </a>
+
+        <a mat-button routerLink="/create" routerLinkActive="active">
+          <span class="menu-text">ایجاد کاربر</span>
+          <mat-icon class="mat-24 icon">add_circle</mat-icon>
+        </a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <!-- Dynamic content area -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

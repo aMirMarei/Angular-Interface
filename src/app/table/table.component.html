@@ -1,0 +1,51 @@
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th class="name-column">Name</th>
+      <th class="family-name-column">Family Name</th>
+      <!-- Add the merged column for mobile -->
+      <th class="merged-column">Full Name</th>
+      <th>Phone</th>
+      <th class="address-column">
+        Address
+        <button (click)="toggleFullAddresses()">
+          <i class="fas fa-info-circle"></i>
+        </button>
+      </th>
+      <th>Password</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of data; let i = index">
+      <td>{{ user.ID_Users }}</td>
+      <!-- Original Name and Family Name columns for larger screens -->
+      <td class="name-column">{{ user.Name }}</td>
+      <td class="family-name-column">{{ user.Family_name }}</td>
+      <!-- Merged column for mobile -->
+      <td class="merged-column">{{ user.Name }} {{ user.Family_name }}</td>
+      <td>{{ user.Phone }}</td>
+      <td class="address-column">
+        <span *ngIf="!showFullAddresses"
+          >{{ user.Address | slice : 0 : 5 }}...</span
+        >
+        <span *ngIf="showFullAddresses">{{ user.Address }}</span>
+      </td>
+      <td class="password-cell">
+        <span *ngIf="!showPassword[i]">{{ maskPassword(user.Password) }}</span>
+        <span *ngIf="showPassword[i]">{{ user.Password }}</span>
+        <button (click)="showPassword[i] = !showPassword[i]">
+          <i
+            class="fas eye-icon"
+            [ngClass]="{
+              'fa-eye': !showPassword[i],
+              'fa-eye-slash': showPassword[i]
+            }"
+          ></i>
+        </button>
+      </td>
+      <td>{{ user.Email }}</td>
+    </tr>
+  </tbody>
+</table>

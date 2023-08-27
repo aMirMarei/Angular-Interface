@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/*global styles*/
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=IBM+Plex+Sans+Arabic&family=Rubik:wght@300&family=Vazirmatn:wght@300&display=swap");
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+/*Typography customization is also possible*/
+* {
+  font-family: "Vazirmatn", sans-serif;
+}

@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://angulartest.aslamturk.ir",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
+  

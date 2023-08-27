@@ -1,0 +1,129 @@
+/* Set the direction to LTR for the table */
+table {
+  direction: ltr;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* Style the table header */
+th {
+  background-color: #343a40; /* Dark background color for header */
+  color: #ffffff; /* Text color for header */
+  font-weight: bold;
+  white-space: nowrap; /* Prevent header text from wrapping */
+}
+
+/* Style alternating table rows */
+tr:nth-child(even) {
+  background-color: #f8f9fa; /* Alternate row background color */
+}
+
+/* Style table cells */
+td,
+th {
+  padding: 10px;
+  text-align: center; /* Center-align cell content */
+  white-space: nowrap; /* Prevent cell text from wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis; /* Add ellipsis (...) for long text */
+}
+
+/* Add hover effect on table rows */
+tr:hover {
+  background-color: #e2e6ea; /* Hover background color */
+}
+
+/* Add a border to the table */
+table {
+  border: 1px solid #dee2e6;
+}
+
+/* Style the Show button */
+button[mat-icon-button] {
+  color: #007bff; /* Change button color as needed */
+}
+
+/* ... (previous CSS code) ... */
+
+/* Style the info icon button */
+.address-column button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Truncate text in address column after 5 characters */
+.address-column {
+  max-width: 180px; /* Set your desired max-width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-width 0.5s ease-in-out; /* Add a transition for width changes */
+}
+
+/* Add a class to indicate expanded addresses */
+.address-column.expanded {
+  max-width: none !important; /* Override max-width when expanded */
+}
+
+.fa-info-circle {
+  color: #ffffff;
+}
+/* Hide the password by default */
+.password {
+  display: none;
+}
+
+/* Show the password when the checkbox is checked */
+.password-toggle:checked + label + .password {
+  display: inline-block;
+}
+
+.password-cell {
+  max-width: none;
+  position: relative;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  white-space: nowrap; /* Prevent cell content from wrapping */
+}
+
+.password-cell button {
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.eye-icon {
+  color: rgb(52, 58, 64);
+}
+
+.merged-column {
+  display: none;
+}
+@media (max-width: 768px) {
+  .name-column {
+    display: none; /* Hide the original column on mobile */
+  }
+
+  /* Add styling for the merged column on mobile */
+  td {
+    text-align: center; /* Center-align the merged content */
+  }
+
+  /* Hide the original "Name" and "Family Name" columns on mobile */
+  .name-column,
+  .family-name-column {
+    display: none;
+  }
+
+  /* Add styling for the merged column on mobile */
+  .merged-column {
+    display: table-cell; /* Display as a table cell to stack content vertically */
+    text-align: center; /* Center-align the merged content */
+    padding: 10px; /* Add padding to match other cells */
+  }
+}
